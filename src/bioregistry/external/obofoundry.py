@@ -93,11 +93,11 @@ def _process(record):
 
     for product in record.get("products", []):
         if product["id"] == f"{oid}.obo":
-            rv["download.obo"] = product["ontology_purl"]
+            rv["download.obo"] = product["ontology_purl"].replace("http://", "https://")
         elif product["id"] == f"{oid}.json":
-            rv["download.json"] = product["ontology_purl"]
+            rv["download.json"] = product["ontology_purl"].replace("http://", "https://")
         elif product["id"] == f"{oid}.owl":
-            rv["download.owl"] = product["ontology_purl"]
+            rv["download.owl"] = product["ontology_purl"].replace("http://", "https://")
 
     logo = record.get("depicted_by")
     if logo:
